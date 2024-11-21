@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogue</title>
+</head>
+<body>
+<h1>Каталог товаров</h1>
+<table border="1" style="width:300px">
+    <tr>
+        <th>product_id</th>
+        <th>Название товара</th>
+        <th>Цена товара</th>
+        <th>Действия</th>
+    </tr>
+<!--    <tr th:each="line : ${tab_lines}">-->
+<!--        <td><span th:text="${line.id}"/></td>-->
+<!--        <td><span th:text="${line.name}"/></td>-->
+<!--        <td><span th:text="${line.price}"/></td>-->
+
+
+
+    <tr th:each="product : ${tab_lines}">
+    <td>
+        <span th:text="${product.id}"/>
+    </td>
+
+        <td>
+            <a th:href="@{'/diskr?id=' + ${product.id}}" th:text="${product.name}"></a>
+        </td>
+
+        <td>
+            <a th:href="@{'/diskr?id=' + ${product.id}}"> Перейти</a>
+        </td>
+
+        <td>
+            <a th:href="@{'/deleteProd?id=' + ${product.id}}"> Удалить</a>
+
+        </td>
+    </tr>
+<!--        <td><span th:text="${line.diskription}"/></td>-->
+    </tr>
+
+</table>
+</body>
+</html>
